@@ -1,20 +1,26 @@
 pipeline {
-    agent any
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Construction du projet Calculatrice Web...'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Lancement des tests (simulation)...'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Déploiement terminé ✅'
-            }
-        }
-    }
+agent any
+stages {
+stage('Build') {
+steps {
+echo 'Démarrage du build...'
+}
+}
+stage('Test') {
+steps {
+script {
+echo 'Démarrage des tests...'
+if (fileExists('index.html')) {
+echo "Fichier index.html présent"
+} else {
+error "Fichier index.html manquant"
+}
+}
+}
+}
+}
+post {
+success { echo 'OK ✅' }
+failure { echo 'Échec ❌' }
+}
 }

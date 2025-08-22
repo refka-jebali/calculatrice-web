@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculatrice Web</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Calculatrice Web</h1>
+  <div id="calculatrice">
+    <input type="text" id="resultat" readonly>
+    <div class="touches">
+      <button onclick="ajouter('1')">1</button>
+      <button onclick="ajouter('2')">2</button>
+      <button onclick="ajouter('+')">+</button>
+      <button onclick="calculer()">=</button>
+      <button onclick="reset()">C</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
